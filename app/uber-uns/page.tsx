@@ -121,29 +121,32 @@ export default function UberUns() {
       </section>
 
       <div className="max-w-6xl mx-auto px-5 md:px-6">
-        {/* --- DÜZELTİLMİŞ VE ANİMASYONLU METİN (MISSION) --- */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-40 pt-16">
-          <motion.div 
-            initial={{ x: -30, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <h3 className="text-2xl md:text-4xl font-bold uppercase tracking-tighter">Willkommen bei <br/>AON Creative.</h3>
-            <p className="text-lg opacity-80 leading-relaxed">
-              Wir sind ein leidenschaftliches Kollektiv aus Kreativen, Entwicklern ve digitalen Strategen. Unsere Spezialisierung liegt darin, Unternehmen wie Ihrem zu helfen, im digitalen Raum nachhaltig erfolgreich zu sein.
-            </p>
-          </motion.div>
-          <motion.div 
-            initial={{ x: 30, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            className="bg-[#1C443C] text-[#E7E2C8] p-10 rounded-3xl"
-          >
-             <h4 className="text-[#F15A24] font-black uppercase text-[10px] tracking-widest mb-4">Mission</h4>
-             <p className="text-xl font-medium leading-relaxed italic">"Wir schaffen funktionale Ästhetik, die Ihre Marke stärkt ve Ihre Geschäftsziele präzise unterstützt."</p>
-          </div>
-        </section>
+  {/* --- DÜZELTİLMİŞ VE ANİMASYONLU METİN (MISSION) --- */}
+  <section className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-40 pt-16">
+    <motion.div 
+      initial={{ x: -30, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      className="space-y-6"
+    >
+      <h3 className="text-2xl md:text-4xl font-bold uppercase tracking-tighter">Willkommen bei <br/>AON Creative.</h3>
+      <p className="text-lg opacity-80 leading-relaxed">
+        Wir sind ein leidenschaftliches Kollektiv aus Kreativen, Entwicklern und digitalen Strategen. Unsere Spezialisierung liegt darin, Unternehmen wie Ihrem zu helfen, im digitalen Raum nachhaltig erfolgreich zu sein.
+      </p>
+    </motion.div>
+    
+    <motion.div 
+      initial={{ x: 30, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      className="bg-[#1C443C] text-[#E7E2C8] p-10 rounded-3xl"
+    >
+       <h4 className="text-[#F15A24] font-black uppercase text-[10px] tracking-widest mb-4">Mission</h4>
+       <p className="text-xl font-medium leading-relaxed italic text-[#E7E2C8]">
+         "Wir schaffen funktionale Ästhetik, die Ihre Marke stärkt und Ihre Geschäftsziele präzise unterstützt."
+       </p>
+    </motion.div> {/* Hata buradaydı, motion.div olarak kapatıldı */}
+  </section>
 
         {/* --- WAS UNS AUSZEICHNET (GÜNCELLENMİŞ GRID) --- */}
         <section className="mb-40 pt-16 border-t border-[#1C443C]/10">
