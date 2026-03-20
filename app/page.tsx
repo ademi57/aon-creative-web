@@ -19,7 +19,7 @@ export default function Home() {
   if (!mounted) return null;
 
   const navLinks = [
-    { name: "Über Uns", href: "#" },
+    { name: "Über Uns", href: "/uber-uns"},
     { name: "Leistung", href: "#" },
     { name: "Fähigkeiten", href: "#" },
     { name: "Referenzen", href: "#" },
