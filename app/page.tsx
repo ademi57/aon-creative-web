@@ -23,7 +23,7 @@ export default function Home() {
     { name: "Leistung", href: "#" },
     { name: "Fähigkeiten", href: "#" },
     { name: "Referenzen", href: "#" },
-    { name: "Kontakt", href: "#" },
+    { name: "Kontakt", href: "/kontakt" },
   ];
 
   return (
@@ -43,32 +43,35 @@ export default function Home() {
             <nav className="flex justify-between items-center py-6 md:py-10 border-b border-[#1C443C]/10 mb-12 md:mb-20 relative z-[100]">
               {/* Logo: Mobilde w-28, Masaüstünde w-32 */}
               <div className="flex-1 flex justify-start">
-                <img 
-                  src="/logo.png" 
-                  alt="AON Creative" 
-                  className="w-28 md:w-32 mix-blend-multiply contrast-[1.2] brightness-[1.1] opacity-95 block pointer-events-none select-none"
-                />
-              </div>
+  <a href="/">
+    <img 
+      src="/logo.png" 
+      alt="AON Creative" 
+    
+      className="w-50 md:w-50 block pointer-events-none select-none transition-all duration-300"
+    />
+  </a>
+</div>
 
-              {/* Orta: Sallanan Buton (Büyük ve Hareketli) */}
-              <div className="flex-1 flex justify-center">
-                <motion.a
-                  href="#kontakt"
-                  animate={{ 
-                    y: [0, -10, 0],
-                    rotate: [0, -1, 1, 0]
-                  }}
-                  transition={{ 
-                    duration: 2.5, 
-                    repeat: Infinity, 
-                    ease: "easeInOut" 
-                  }}
-                  whileHover={{ scale: 1.1, backgroundColor: "#1C443C", color: "#E7E2C8" }}
-                  className="bg-[#F15A24] text-white px-8 py-3 md:px-12 md:py-5 rounded-full text-[11px] md:text-[13px] font-black uppercase tracking-[0.25em] shadow-2xl shadow-[#F15A24]/30 border border-transparent whitespace-nowrap transition-all duration-300"
-                >
-                  Angebot anfordern
-                </motion.a>
-              </div>
+              {/* Orta: Sallanan Buton (1sn Hareket + 2sn Durma) */}
+<div className="flex-1 flex justify-center">
+  <motion.a
+    href="#kontakt"
+    animate={{ 
+      y: [0, -10, 0, -10, 0, 0, 0], // Sallanma hareketleri ve sonunda sabit kalma
+    }}
+    transition={{ 
+      duration: 3, // Toplam döngü süresi
+      repeat: Infinity, 
+      ease: "easeInOut",
+      times: [0, 0.1, 0.2, 0.3, 0.4, 0.7, 1], // Hareketin % kaçta duracağını belirler
+    }}
+    whileHover={{ scale: 1.1, backgroundColor: "#1C443C", color: "#E7E2C8" }}
+    className="bg-[#F15A24] text-white px-8 py-3 md:px-12 md:py-5 rounded-full text-[11px] md:text-[13px] font-black uppercase tracking-[0.25em] shadow-2xl shadow-[#F15A24]/30 border border-transparent whitespace-nowrap transition-all duration-300"
+  >
+    Angebot anfordern
+  </motion.a>
+</div>
 
               {/* Sağ: Masaüstünde Linkler, Mobilde Burger */}
               <div className="flex-1 flex justify-end">
@@ -126,26 +129,31 @@ export default function Home() {
                 <div className="bg-transparent border border-[#1C443C]/20 text-[#1C443C] px-3 py-1 rounded text-[9px] font-bold tracking-[0.3em] uppercase w-fit">Creative Design Studio</div>
               </div>
 
-              <motion.h1 
-                initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] mb-10 uppercase"
-              >
-                Präzision trifft <br />
-                <span className="text-[#F15A24]">Digitale</span> <span className="italic font-light">Ästhetik.</span>
-              </motion.h1>
+  <motion.h1 
+  initial={{ y: 20, opacity: 0 }} 
+  animate={{ y: 0, opacity: 1 }} 
+  transition={{ delay: 0.2, duration: 0.8 }}
+  className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-extrabold tracking-tighter leading-[0.95] mb-12 uppercase"
+>
+  Präzision trifft <br />
+  <span className="text-[#F15A24]">Digitale</span> <span className="italic font-light">Ästhetik.</span>
+</motion.h1>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
-                <p className="text-base md:text-xl font-medium leading-relaxed opacity-70">
-                  Wir eliminieren technische Schwachstellen in Ihrem Shopify-System ve gestalten gleichzeitig Web-Erlebnisse, die Ihre Marke nachhaltig stärken.
-                </p>
-                <div className="hidden md:flex items-center gap-4 border-l border-[#1C443C]/10 pl-8">
-                  <ul className="text-xs font-bold uppercase tracking-widest space-y-3">
-                    <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#F15A24] rounded-full"/> Shopify Optimierung</li>
-                    <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#41BDCC] rounded-full"/> High-End Webdesign</li>
-                    <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#1C443C] rounded-full"/> Qualitätssicherung</li>
-                  </ul>
-                </div>
-              </div>
+  {/* Sol Taraf: Büyük Metin */}
+  <p className="text-base md:text-2xl font-medium leading-relaxed opacity-70">
+    Wir eliminieren technische Schwachstellen in Ihrem Shopify-System und gestalten gleichzeitig Web-Erlebnisse, die Ihre Marke nachhaltig stärken.
+  </p>
+
+  {/* Sağ Taraf: Liste (Sadece Masaüstünde Görünür) */}
+  <div className="hidden md:flex items-center gap-4 border-l border-[#1C443C]/10 pl-8">
+    <ul className="text-xs font-bold uppercase tracking-widest space-y-3">
+      <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#F15A24] rounded-full"/> Shopify Optimierung</li>
+      <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#41BDCC] rounded-full"/> High-End Webdesign</li>
+      <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#1C443C] rounded-full"/> Qualitätssicherung</li>
+    </ul>
+  </div>
+</div>
             </header>
 
             {/* --- 4 TEMEL PRENSİP (GÖRSELDEKİ METİNLERLE) --- */}
@@ -157,6 +165,44 @@ export default function Home() {
                 <MethodCard title="Sie arbeiten mit Profis" desc="Höchste Qualität und Fachkompetenz in jedem Schritt Ihres Projekts." style="bg-[#1C443C] text-white" />
               </div>
             </section>
+
+
+{/* --- LEISTUNG (HİZMETLER) SECTION --- */}
+<section id="leistung" className="mb-32 md:mb-48 border-t border-[#1C443C]/10 pt-20">
+  <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-20 text-[#1C443C]">
+    <div className="max-w-xl">
+      <h2 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#F15A24] mb-4">Unsere Leistung</h2>
+      <h3 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-none">
+        Wir jagen Fehler, <br /> damit Sie <span className="italic font-light text-[#41BDCC]">wachsen</span> können.
+      </h3>
+    </div>
+    <p className="text-base md:text-lg opacity-60 max-w-sm font-medium leading-relaxed">
+      Von der tiefgreifenden Code-Analyse bis hin zum High-End Store-Design – wir bieten Shopify-Lösungen, die technisch perfekt und visuell überlegen sind.
+    </p>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <ServiceBox 
+      number="01"
+      title="Shopify Debugging & Performance"
+      desc="Wir identifizieren und eliminieren kritische Fehler in Ihren Liquid-Files und Apps. Maximale Ladezeit-Optimierung für Ihren Erfolg."
+      tags={["Code-Audit", "Speed-Push", "App-Clean"]}
+    />
+    <ServiceBox 
+      number="02"
+      title="Custom UI/UX Store-Design"
+      desc="Vergessen Sie Standard-Templates. Wir kreieren einzigartige Markenerlebnisse, die Ihre Besucher in treue Kunden verwandeln."
+      tags={["Branding", "User-Experience", "Conversion-Focus"]}
+    />
+    <ServiceBox 
+      number="03"
+      title="Strategische Beratung"
+      desc="Wir begleiten Sie langfristig. Von der Skalierung Ihres Systems bis zur Auswahl der richtigen Tech-Stacks für Ihre Vision."
+      tags={["Scalability", "Consulting", "Quality-Check"]}
+    />
+  </div>
+</section>
+
 
             {/* --- FÄHIGKEITEN (KONSEPT) --- */}
             <section className="mb-32 md:mb-48 border-t border-[#1C443C]/10 pt-20">
@@ -182,6 +228,8 @@ export default function Home() {
                 </div>
               </div>
             </section>
+           
+
 
             {/* --- FOOTER & SOSYAL İKONLAR --- */}
             <footer className="pb-10 pt-10 border-t border-[#1C443C]/5">
@@ -224,5 +272,28 @@ function MethodCard({ title, desc, style }: { title: string; desc: string; style
       <h4 className="font-bold uppercase text-[10px] mb-3 tracking-widest leading-tight">{title}</h4>
       <p className="text-[11px] leading-relaxed opacity-90 font-medium">{desc}</p>
     </div>
+  );
+}
+// BU KISIM DOSYANIN EN ALTINDA OLMALI
+function ServiceBox({ number, title, desc, tags }: { number: string; title: string; desc: string; tags: string[] }) {
+  return (
+    <motion.div 
+      whileHover={{ y: -10 }}
+      className="bg-white/40 border border-[#1C443C]/5 p-8 rounded-[32px] flex flex-col justify-between min-h-[320px] shadow-lg shadow-[#1C443C]/5 group transition-all duration-500 hover:bg-[#1C443C]"
+    >
+      <div className="text-[#1C443C] group-hover:text-[#E7E2C8] transition-colors">
+        <span className="text-[10px] font-black tracking-widest opacity-30 group-hover:text-[#F15A24] group-hover:opacity-100 transition-all">{number}</span>
+        <h4 className="text-2xl font-bold uppercase tracking-tighter mt-4 mb-4 leading-tight">{title}</h4>
+        <p className="text-sm opacity-70 leading-relaxed font-medium group-hover:opacity-90">{desc}</p>
+      </div>
+      
+      <div className="flex flex-wrap gap-2 mt-8">
+        {tags.map((tag) => (
+          <span key={tag} className="text-[8px] uppercase tracking-[0.2em] font-black px-3 py-1 bg-[#1C443C]/5 text-[#1C443C] rounded-full border border-[#1C443C]/10 group-hover:border-white/20 group-hover:bg-white/10 group-hover:text-white">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </motion.div>
   );
 }

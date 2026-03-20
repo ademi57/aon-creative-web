@@ -26,7 +26,7 @@ export default function UberUns() {
             <img 
               src="/logo.png" 
               alt="AON Creative" 
-              className="w-28 md:w-32 mix-blend-multiply contrast-[1.2] brightness-[1.1] opacity-95 block pointer-events-none select-none"
+              className="w-28 md:w-32 block pointer-events-none select-none"
             />
           </a>
         </div>
