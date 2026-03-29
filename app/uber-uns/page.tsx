@@ -31,25 +31,25 @@ export default function UberUns() {
           </a>
         </div>
 
-        {/* Orta: Sallanan Buton (Büyük ve Hareketli) */}
-        <div className="flex-1 flex justify-center">
-          <motion.a
-            href="/#kontakt"
-            animate={{ 
-              y: [0, -10, 0],
-              rotate: [0, -1, 1, 0]
-            }}
-            transition={{ 
-              duration: 2.5, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
-            whileHover={{ scale: 1.1, backgroundColor: "#1C443C", color: "#E7E2C8" }}
-            className="bg-[#F15A24] text-white px-8 py-3 md:px-12 md:py-5 rounded-full text-[11px] md:text-[13px] font-black uppercase tracking-[0.25em] shadow-2xl shadow-[#F15A24]/30 border border-transparent whitespace-nowrap transition-all duration-300"
-          >
-            Angebot anfordern
-          </motion.a>
-        </div>
+        {/* Orta: Sallanan Buton (1sn Hareket + 2sn Durma) */}
+<div className="flex-1 flex justify-center">
+  <motion.a
+    href="#kontakt"
+    animate={{ 
+      y: [0, -10, 0, -10, 0, 0, 0], // Sallanma hareketleri ve sonunda sabit kalma
+    }}
+    transition={{ 
+      duration: 3, // Toplam döngü süresi
+      repeat: Infinity, 
+      ease: "easeInOut",
+      times: [0, 0.1, 0.2, 0.3, 0.4, 0.7, 1], // Hareketin % kaçta duracağını belirler
+    }}
+    whileHover={{ scale: 1.1, backgroundColor: "#1C443C", color: "#E7E2C8" }}
+    className="bg-[#F15A24] text-white px-8 py-3 md:px-12 md:py-5 rounded-full text-[11px] md:text-[13px] font-black uppercase tracking-[0.25em] shadow-2xl shadow-[#F15A24]/30 border border-transparent whitespace-nowrap transition-all duration-300"
+  >
+    Angebot anfordern
+  </motion.a>
+</div>
 
         {/* Sağ: Masaüstünde Linkler, Mobilde Burger */}
         <div className="flex-1 flex justify-end">
