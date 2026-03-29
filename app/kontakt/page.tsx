@@ -194,8 +194,8 @@ export default function Kontakt() {
           <div className="space-y-16 lg:pl-12">
             <section className="space-y-4 pt-10">
               <h4 className="text-[#F15A24] text-[10px] font-black uppercase tracking-widest">Direkt Kontakt</h4>
-              <a href="mailto:info@aon-creative.com" className="text-3xl md:text-5xl font-black tracking-tighter hover:text-[#F15A24] transition-colors duration-300 underline underline-offset-8 decoration-[#F15A24]/20">
-                info@aon-creative.com
+              <a href="mailto:info@aoncreative.com" className="text-3xl md:text-5xl font-black tracking-tighter hover:text-[#F15A24] transition-colors duration-300 underline underline-offset-8 decoration-[#F15A24]/20">
+                info@aoncreative.com
               </a>
             </section>
 
