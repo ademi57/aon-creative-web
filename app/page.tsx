@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import TerminalLoader from "../components/TerminalLoader";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaInstagram, FaFacebook, FaGoogle, FaLinkedin } from "react-icons/fa";
+import Link from 'next/link';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -226,10 +227,24 @@ export default function Home() {
                 <motion.a href="#" whileHover={{ y: -5, color: "#F15A24" }}><FaGoogle /></motion.a>
                 <motion.a href="#" whileHover={{ y: -5, color: "#F15A24" }}><FaLinkedin /></motion.a>
               </div>
-              <div className="flex flex-col md:flex-row justify-between items-center opacity-40 text-center">
-                <p className="text-[9px] tracking-[0.3em] uppercase font-black mb-4 md:mb-0">AON CREATIVE • © 2026 Engineering Aesthetics</p>
-                <div className="flex gap-6 text-[9px] uppercase tracking-widest font-black"><a href="#" className="hover:text-[#F15A24]">Impressum</a><a href="#" className="hover:text-[#F15A24]">Datenschutz</a></div>
-              </div>
+              <p className="text-[9px] tracking-[0.3em] uppercase font-black mb-4 md:mb-0">
+  AON CREATIVE • © 2026 Engineering Aesthetics
+</p>
+
+<div className="flex gap-6 text-[9px] uppercase tracking-widest font-black">
+  <Link 
+    href="/impressum" 
+    className="hover:text-[#F15A24] transition-colors cursor-pointer"
+  >
+    Impressum
+  </Link>
+  <Link 
+    href="/datenschutz" 
+    className="hover:text-[#F15A24] transition-colors cursor-pointer"
+  >
+    Datenschutz
+  </Link>
+</div>
             </footer>
           </motion.div>
         )}
