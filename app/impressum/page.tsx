@@ -1,50 +1,82 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export default function impressum() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const navLinks = [
+    { name: "Über Uns", href: "/uber-uns" },
+    { name: "Leistung", href: "/#leistung" },
+    { name: "Faehigkeiten", href: "/#faehigkeiten" },
+    { name: "Referenzen", href: "/#referenzen" },
+    { name: "Kontakt", href: "/kontakt" },
+  ];
+
   return (
-    <main className="min-h-screen bg-[#E7E2C8] text-[#1C443C] font-sans selection:bg-[#F15A24] selection:text-white">
-      {/* Header (Kontakt sayfasındakiyle aynı yapıda tutuyoruz) */}
-      <nav className="max-w-6xl mx-auto px-5 py-6 md:py-10 border-b border-[#1C443C]/10 flex justify-between items-center relative z-[1000]">
-        <a href="/" className="font-black text-xl tracking-tighter uppercase">AON Creative</a>
-        <a href="/kontakt" className="bg-[#F15A24] text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">Kontakt</a>
-      </nav>
-
-      {/* İçerik Alanı */}
-      <div className="max-w-3xl mx-auto px-5 py-20">
-        <h1 className="text-5xl font-black tracking-tighter mb-12 uppercase text-[#F15A24]">Impressum</h1>
-        
-        <div className="space-y-10 opacity-90 leading-relaxed text-sm">
-          <section>
-            <h2 className="font-black uppercase tracking-widest text-[10px] mb-2 opacity-50">Angaben gemäß § 5 TMG</h2>
-            <p className="font-bold text-lg">[OZCAN KABAKAYA - AonStore]</p>
-            <p>[Schlesier str.29]</p>
-            <p>[76275/Ettlingen]</p>
-          </section>
-
-          <section>
-            <h2 className="font-black uppercase tracking-widest text-[10px] mb-2 opacity-50">Kontakt</h2>
-            <p>E-Mail: <span className="font-bold underline decoration-[#F15A24]">info@aon-creative.com</span></p>
-          </section>
-
-          <section>
-            <h2 className="font-black uppercase tracking-widest text-[10px] mb-2 opacity-50">Vertreten durch</h2>
-            <p>[Ozcan KABAKAYA]</p>
-          </section>
-
-          <section>
-            <h2 className="font-black uppercase tracking-widest text-[10px] mb-2 opacity-50">Umsatzsteuer-ID</h2>
-            <p>Gemäß § 27 a Umsatzsteuergesetz: [VERGİ NUMARAN]</p>
-          </section>
-
-          <div className="pt-10 border-t border-[#1C443C]/10 text-[10px] opacity-40 uppercase tracking-[0.2em]">
-            AON Creative — © 2026 Digital Studio
+    <main className="min-h-screen bg-[#E7E2C8] text-[#1C443C] font-sans selection:bg-[#F15A24] selection:text-white overflow-x-hidden">
+      
+      {/* --- HEADER --- */}
+      <nav className="max-w-6xl mx-auto px-5 md:px-6 flex justify-between items-center py-6 md:py-10 border-b border-[#1C443C]/10 relative z-[1000]">
+        <div className="flex-1 flex justify-start">
+          <Link href="/">
+            <img src="/logo.png" alt="AON Creative" className="w-32 md:w-40 block" />
+          </Link>
+        </div>
+        <div className="flex-1 flex justify-center">
+          <Link href="/kontakt" className="bg-[#F15A24] text-white px-5 py-2.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em] whitespace-nowrap">
+            Angebot anfordern
+          </Link>
+        </div>
+        <div className="flex-1 flex justify-end">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden flex flex-col gap-1.5 relative z-[2100]">
+            <motion.span animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-8 h-[2px] bg-[#1C443C] block origin-center"/>
+            <motion.span animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-8 h-[2px] bg-[#1C443C] block"/>
+            <motion.span animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-8 h-[2px] bg-[#1C443C] block origin-center"/>
+          </button>
+          <div className="hidden md:flex gap-8 text-[10px] uppercase font-bold opacity-60">
+            {navLinks.map((link) => (
+              <Link key={link.name} href={link.href} className="hover:text-[#F15A24] transition-colors">{link.name}</Link>
+            ))}
           </div>
         </div>
+      </nav>
+
+      {/* --- CONTENT --- */}
+      <div className="max-w-4xl mx-auto px-5 py-24">
+        <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-16 text-[#F15A24]">Impressum</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 opacity-90 text-sm leading-relaxed">
+          <section className="space-y-4">
+            <h2 className="text-[10px] font-black uppercase tracking-widest opacity-40">Angaben gemäß § 5 TMG</h2>
+            <p className="text-xl font-bold uppercase">[DEIN NAME / FIRMA]</p>
+            <p>[STRASSE UND HAUSNUMMER]<br />[PLZ UND STADT]</p>
+          </section>
+          <section className="space-y-4">
+            <h2 className="text-[10px] font-black uppercase tracking-widest opacity-40">Kontakt</h2>
+            <p className="text-xl font-bold underline decoration-[#F15A24]">info@aon-creative.com</p>
+          </section>
+          <section className="space-y-4">
+            <h2 className="text-[10px] font-black uppercase tracking-widest opacity-40">Vertreten durch</h2>
+            <p className="text-xl font-bold uppercase">[DEIN NAME]</p>
+          </section>
+          <section className="space-y-4">
+            <h2 className="text-[10px] font-black uppercase tracking-widest opacity-40">Umsatzsteuer-ID</h2>
+            <p className="text-xl font-bold">[DEINE UST-IDNR]</p>
+          </section>
+        </div>
       </div>
+
+      {/* --- FOOTER --- */}
+      <footer className="max-w-6xl mx-auto px-5 py-12 border-t border-[#1C443C]/10 mt-20">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[9px] tracking-[0.3em] uppercase font-black opacity-40">AON CREATIVE • © 2026</p>
+          <div className="flex gap-6 text-[9px] uppercase tracking-widest font-black">
+            <Link href="/impressum" className="hover:text-[#F15A24]">Impressum</Link>
+            <Link href="/datenschutz" className="hover:text-[#F15A24]">Datenschutz</Link>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }

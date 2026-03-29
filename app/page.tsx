@@ -233,13 +233,13 @@ export default function Home() {
 
 <div className="flex gap-6 text-[9px] uppercase tracking-widest font-black">
   <Link 
-    href="/Impressum" 
+    href="/impressum" 
     className="hover:text-[#F15A24] transition-colors cursor-pointer"
   >
     Impressum
   </Link>
   <Link 
-    href="/Datenschutz" 
+    href="/datenschutz" 
     className="hover:text-[#F15A24] transition-colors cursor-pointer"
   >
     Datenschutz
