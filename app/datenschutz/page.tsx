@@ -1,11 +1,18 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
-export default function datenschutz() {
+export default function Impressum() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const navLinks = [
+    { name: "Über Uns", href: "/uber-uns" },
+    { name: "Leistung", href: "/#leistung" },
+    { name: "Faehigkeiten", href: "/#faehigkeiten" },
+    { name: "Referenzen", href: "/#referenzen" },
+    { name: "Kontakt", href: "/kontakt" },
+  ];
   return (
     <main className="min-h-screen bg-[#E7E2C8] text-[#1C443C] font-sans selection:bg-[#F15A24] selection:text-white">
       {/* Header - Aynı yapı */}
@@ -29,13 +36,15 @@ export default function datenschutz() {
         </div>
       </div>
 
-      {/* Footer - Aynı yapı */}
-      <footer className="max-w-6xl mx-auto px-5 py-12 border-t border-[#1C443C]/10">
+      {/* --- FOOTER --- */}
+      <footer className="max-w-6xl mx-auto px-5 py-12 border-t border-[#1C443C]/10 mt-20">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[9px] tracking-[0.3em] uppercase font-black opacity-40">AON CREATIVE • © 2026</p>
+          <p className="text-[9px] tracking-[0.3em] uppercase font-black opacity-40 text-center md:text-left">
+            AON CREATIVE • © 2026 Engineering Aesthetics
+          </p>
           <div className="flex gap-6 text-[9px] uppercase tracking-widest font-black">
-            <Link href="/impressum">Impressum</Link>
-            <Link href="/datenschutz">Datenschutz</Link>
+            <Link href="/impressum" className="hover:text-[#F15A24]">Impressum</Link>
+            <Link href="/datenschutz" className="hover:text-[#F15A24]">Datenschutz</Link>
           </div>
         </div>
       </footer>
