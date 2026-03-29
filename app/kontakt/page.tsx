@@ -45,7 +45,8 @@ export default function Kontakt() {
     <main className="min-h-screen bg-[#E7E2C8] text-[#1C443C] font-sans selection:bg-[#F15A24] selection:text-white overflow-x-hidden">
       
       {/* --- HEADER / NAVIGATION --- */}
-      <nav className="max-w-6xl mx-auto px-5 md:px-6 flex justify-between items-center py-6 md:py-10 border-b border-[#1C443C]/10 relative z-[100]">
+      {/* Z-INDEX 1000 YAPILDI: Menü butonunun her zaman üstte kalması için */}
+      <nav className="max-w-6xl mx-auto px-5 md:px-6 flex justify-between items-center py-6 md:py-10 border-b border-[#1C443C]/10 relative z-[1000]">
         <div className="flex-1 flex justify-start">
           <a href="/">
             <img src="/logo.png" alt="AON Creative" className="w-32 md:w-40 block transition-all duration-300" />
@@ -68,7 +69,11 @@ export default function Kontakt() {
               <a key={link.name} href={link.href} className="hover:text-[#F15A24] transition-colors">{link.name}</a>
             ))}
           </div>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 outline-none">
+          {/* BUTON Z-INDEX ARTIRILDI: Menü açıkken kapatma tuşu (X) görünmesi için */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 outline-none relative z-[1100]"
+          >
             <motion.span animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-8 h-[2px] bg-[#1C443C] block origin-center"/>
             <motion.span animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-8 h-[2px] bg-[#1C443C] block"/>
             <motion.span animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-8 h-[2px] bg-[#1C443C] block origin-center"/>
@@ -77,12 +82,29 @@ export default function Kontakt() {
       </nav>
 
       {/* --- MOBILE MENU --- */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isMenuOpen && (
-          <motion.div initial={{ opacity: 0, x: "100%" }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: "100%" }} className="fixed inset-0 bg-[#E7E2C8] z-[90] flex flex-col items-center justify-center">
+          <motion.div 
+            initial={{ opacity: 0, x: "100%" }} 
+            animate={{ opacity: 1, x: 0 }} 
+            exit={{ opacity: 0, x: "100%" }} 
+            transition={{ type: "tween", duration: 0.4 }}
+            /* Z-INDEX 1050 YAPILDI: Navigasyonun üstünde, butonun altında */
+            className="fixed inset-0 bg-[#E7E2C8] z-[1050] flex flex-col items-center justify-center overflow-hidden"
+          >
             <div className="flex flex-col items-center gap-8">
               {navLinks.map((link, i) => (
-                <motion.a key={link.name} href={link.href} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} onClick={() => setIsMenuOpen(false)} className="text-4xl font-bold uppercase tracking-tighter">{link.name}</motion.a>
+                <motion.a 
+                  key={link.name} 
+                  href={link.href} 
+                  initial={{ opacity: 0, y: 20 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  transition={{ delay: i * 0.1 }} 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className="text-4xl font-bold uppercase tracking-tighter text-[#1C443C] hover:text-[#F15A24] transition-colors"
+                >
+                  {link.name}
+                </motion.a>
               ))}
             </div>
           </motion.div>
@@ -90,7 +112,7 @@ export default function Kontakt() {
       </AnimatePresence>
 
       {/* --- FORM CONTENT --- */}
-      <div className="max-w-6xl mx-auto px-5 md:px-6 pt-20 pb-20">
+      <div className="max-w-6xl mx-auto px-5 md:px-6 pt-20 pb-20 relative z-10">
         <header className="mb-16">
           <h2 className="text-[#F15A24] text-[10px] font-black uppercase tracking-[0.3em] mb-4">Kontakt</h2>
           <p className="text-xl md:text-3xl font-medium max-w-3xl leading-snug opacity-90">
@@ -111,18 +133,18 @@ export default function Kontakt() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest opacity-50 ml-4">Name</label>
-                  <input name="name" type="text" placeholder="Max Mustermann" required className="w-full bg-[#E7E2C8]/60 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-[#F15A24] outline-none transition-all placeholder:opacity-20" />
+                  <input name="name" type="text" placeholder="Max Mustermann" required className="w-full bg-[#E7E2C8]/60 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-[#F15A24] outline-none transition-all placeholder:opacity-20 text-[#1C443C]" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest opacity-50 ml-4">E-Mail</label>
-                  <input name="email" type="email" placeholder="max@example.com" required className="w-full bg-[#E7E2C8]/60 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-[#F15A24] outline-none transition-all placeholder:opacity-20" />
+                  <input name="email" type="email" placeholder="max@example.com" required className="w-full bg-[#E7E2C8]/60 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-[#F15A24] outline-none transition-all placeholder:opacity-20 text-[#1C443C]" />
                 </div>
               </div>
 
               <div className="space-y-2 relative">
                 <label className="text-[10px] font-black uppercase tracking-widest opacity-50 ml-4">Gewünschte Leistung</label>
                 <div className="relative">
-                  <select name="service" required className="w-full bg-[#E7E2C8]/60 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-[#F15A24] outline-none transition-all cursor-pointer appearance-none text-sm font-medium opacity-70">
+                  <select name="service" required className="w-full bg-[#E7E2C8]/60 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-[#F15A24] outline-none transition-all cursor-pointer appearance-none text-sm font-medium opacity-70 text-[#1C443C]">
                     <option value="">Wählen Sie einen Service</option>
                     <option value="Shopify Debugging">Shopify Debugging & Performance</option>
                     <option value="Custom UI/UX">Custom UI/UX Store-Design</option>
@@ -134,7 +156,7 @@ export default function Kontakt() {
 
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest opacity-50 ml-4">Nachricht</label>
-                <textarea name="message" rows={4} required placeholder="Erzählen Sie uns von Ihrem Projekt..." className="w-full bg-[#E7E2C8]/60 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-[#F15A24] outline-none transition-all placeholder:opacity-20 resize-none" />
+                <textarea name="message" rows={4} required placeholder="Erzählen Sie uns von Ihrem Projekt..." className="w-full bg-[#E7E2C8]/60 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-[#F15A24] outline-none transition-all placeholder:opacity-20 resize-none text-[#1C443C]" />
               </div>
 
               <button type="submit" className="w-full bg-[#F15A24] text-white py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-sm shadow-xl shadow-[#F15A24]/40 hover:bg-[#d94e1c] hover:-translate-y-1 active:scale-95 transition-all duration-300">
