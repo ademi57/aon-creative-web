@@ -45,54 +45,66 @@ export default function Kontakt() {
     <main className="min-h-screen bg-[#E7E2C8] text-[#1C443C] font-sans selection:bg-[#F15A24] selection:text-white overflow-x-hidden">
       
       {/* --- HEADER / NAVIGATION --- */}
-      {/* Z-INDEX 1000 YAPILDI: Menü butonunun her zaman üstte kalması için */}
       <nav className="max-w-6xl mx-auto px-5 md:px-6 flex justify-between items-center py-6 md:py-10 border-b border-[#1C443C]/10 relative z-[1000]">
+        {/* Logo */}
         <div className="flex-1 flex justify-start">
           <a href="/">
             <img src="/logo.png" alt="AON Creative" className="w-32 md:w-40 block transition-all duration-300" />
           </a>
         </div>
 
-        <div className="flex-1 flex justify-center">
+        {/* Center Button - "Angebot anfordern" tek satır ve ortalı */}
+        <div className="flex-1 flex justify-center items-center">
           <motion.a
             href="/kontakt"
             whileHover={{ scale: 1.05, backgroundColor: "#1C443C", color: "#E7E2C8" }}
-            className="bg-[#F15A24] text-white px-5 py-2.5 md:px-8 md:py-3.5 rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-[0.2em] shadow-xl shadow-[#F15A24]/20 transition-all duration-300"
+            className="bg-[#F15A24] text-white px-4 py-2.5 md:px-8 md:py-3.5 rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-[0.2em] shadow-xl shadow-[#F15A24]/20 transition-all duration-300 whitespace-nowrap min-w-fit text-center inline-block"
           >
             Angebot anfordern
           </motion.a>
         </div>
 
-        <div className="flex-1 flex justify-end">
-          <div className="hidden md:flex gap-8 text-[10px] uppercase tracking-[0.25em] font-bold opacity-60">
+        {/* Nav Links & Burger Button */}
+        <div className="flex-1 flex justify-end items-center">
+          <div className="hidden md:flex gap-8 text-[10px] uppercase tracking-[0.25em] font-bold opacity-60 mr-4">
             {navLinks.map((link) => (
               <a key={link.name} href={link.href} className="hover:text-[#F15A24] transition-colors">{link.name}</a>
             ))}
           </div>
-          {/* BUTON Z-INDEX ARTIRILDI: Menü açıkken kapatma tuşu (X) görünmesi için */}
+          
+          {/* Burger / X Button */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 outline-none relative z-[1100]"
+            className="flex flex-col justify-center items-center w-10 h-10 gap-1.5 outline-none relative z-[2100]"
+            aria-label="Menu"
           >
-            <motion.span animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-8 h-[2px] bg-[#1C443C] block origin-center"/>
-            <motion.span animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-8 h-[2px] bg-[#1C443C] block"/>
-            <motion.span animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-8 h-[2px] bg-[#1C443C] block origin-center"/>
+            <motion.span 
+              animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} 
+              className={`w-8 h-[2.5px] block origin-center transition-colors ${isMenuOpen ? 'bg-[#F15A24]' : 'bg-[#1C443C]'}`}
+            />
+            <motion.span 
+              animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} 
+              className="w-8 h-[2.5px] bg-[#1C443C] block"
+            />
+            <motion.span 
+              animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} 
+              className={`w-8 h-[2.5px] block origin-center transition-colors ${isMenuOpen ? 'bg-[#F15A24]' : 'bg-[#1C443C]'}`}
+            />
           </button>
         </div>
       </nav>
 
       {/* --- MOBILE MENU --- */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
             initial={{ opacity: 0, x: "100%" }} 
             animate={{ opacity: 1, x: 0 }} 
             exit={{ opacity: 0, x: "100%" }} 
-            transition={{ type: "tween", duration: 0.4 }}
-            /* Z-INDEX 1050 YAPILDI: Navigasyonun üstünde, butonun altında */
-            className="fixed inset-0 bg-[#E7E2C8] z-[1050] flex flex-col items-center justify-center overflow-hidden"
+            transition={{ type: "spring", damping: 30, stiffness: 200 }}
+            className="fixed inset-0 bg-[#E7E2C8] z-[2000] flex flex-col items-center justify-center overflow-hidden"
           >
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-10">
               {navLinks.map((link, i) => (
                 <motion.a 
                   key={link.name} 
@@ -101,11 +113,18 @@ export default function Kontakt() {
                   animate={{ opacity: 1, y: 0 }} 
                   transition={{ delay: i * 0.1 }} 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="text-4xl font-bold uppercase tracking-tighter text-[#1C443C] hover:text-[#F15A24] transition-colors"
+                  className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-[#1C443C] hover:text-[#F15A24] transition-colors"
                 >
                   {link.name}
                 </motion.a>
               ))}
+            </div>
+            
+            {/* Socials in Menu */}
+            <div className="absolute bottom-12 flex gap-8 opacity-40">
+               <FaInstagram size={20} />
+               <FaFacebook size={20} />
+               <FaLinkedin size={20} />
             </div>
           </motion.div>
         )}
@@ -116,13 +135,12 @@ export default function Kontakt() {
         <header className="mb-16">
           <h2 className="text-[#F15A24] text-[10px] font-black uppercase tracking-[0.3em] mb-4">Kontakt</h2>
           <p className="text-xl md:text-3xl font-medium max-w-3xl leading-snug opacity-90">
-            Haben Sie ein Projekt im Kopf veya benötigen Sie Hilfe bei Ihrem Shopify Store? 
+            Haben Sie ein Projekt im Kopf oder benötigen Sie Hilfe bei Ihrem Shopify Store? 
             Füllen Sie das Formular aus – wir melden uns umgehend.
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          
           {/* FORM KARTI */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -146,9 +164,10 @@ export default function Kontakt() {
                 <div className="relative">
                   <select name="service" required className="w-full bg-[#E7E2C8]/60 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-[#F15A24] outline-none transition-all cursor-pointer appearance-none text-sm font-medium opacity-70 text-[#1C443C]">
                     <option value="">Wählen Sie einen Service</option>
-                    <option value="Shopify Debugging">Shopify Debugging & Performance</option>
-                    <option value="Custom UI/UX">Custom UI/UX Store-Design</option>
-                    <option value="SEO Audit">Technical SEO & Audit</option>
+                    <option value="Webdesign">Webdesign erstellen</option>
+                    <option value="Shopify Debugging">Shopify Optimierung & Bugs</option>
+                    <option value="Store Setup">Shopify Store Setup</option>
+                    <option value="SEO Audit">Technisches SEO & Audit</option>
                   </select>
                   <FaChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none opacity-30" size={12} />
                 </div>
@@ -175,8 +194,8 @@ export default function Kontakt() {
           <div className="space-y-16 lg:pl-12">
             <section className="space-y-4 pt-10">
               <h4 className="text-[#F15A24] text-[10px] font-black uppercase tracking-widest">Direkt Kontakt</h4>
-              <a href="mailto:hello@aon-creative.com" className="text-3xl md:text-5xl font-black tracking-tighter hover:text-[#F15A24] transition-colors duration-300 underline underline-offset-8 decoration-[#F15A24]/20">
-                hello@aon-creative.com
+              <a href="mailto:info@aon-creative.com" className="text-3xl md:text-5xl font-black tracking-tighter hover:text-[#F15A24] transition-colors duration-300 underline underline-offset-8 decoration-[#F15A24]/20">
+                info@aon-creative.com
               </a>
             </section>
 
