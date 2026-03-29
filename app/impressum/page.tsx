@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Impressum() {
+export default function impressum() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
