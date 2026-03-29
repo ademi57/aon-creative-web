@@ -45,6 +45,7 @@ export default function Kontakt() {
     <main className="min-h-screen bg-[#E7E2C8] text-[#1C443C] font-sans selection:bg-[#F15A24] selection:text-white overflow-x-hidden">
       
       {/* --- HEADER / NAVIGATION --- */}
+      {/* Z-INDEX 1000 YAPILDI: Menü butonunun her zaman üstte kalması için */}
       <nav className="max-w-6xl mx-auto px-5 md:px-6 flex justify-between items-center py-6 md:py-10 border-b border-[#1C443C]/10 relative z-[1000]">
         <div className="flex-1 flex justify-start">
           <a href="/">
@@ -68,6 +69,7 @@ export default function Kontakt() {
               <a key={link.name} href={link.href} className="hover:text-[#F15A24] transition-colors">{link.name}</a>
             ))}
           </div>
+          {/* BUTON Z-INDEX ARTIRILDI: Menü açıkken kapatma tuşu (X) görünmesi için */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
             className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 outline-none relative z-[1100]"
@@ -87,6 +89,7 @@ export default function Kontakt() {
             animate={{ opacity: 1, x: 0 }} 
             exit={{ opacity: 0, x: "100%" }} 
             transition={{ type: "tween", duration: 0.4 }}
+            /* Z-INDEX 1050 YAPILDI: Navigasyonun üstünde, butonun altında */
             className="fixed inset-0 bg-[#E7E2C8] z-[1050] flex flex-col items-center justify-center overflow-hidden"
           >
             <div className="flex flex-col items-center gap-8">
@@ -113,7 +116,7 @@ export default function Kontakt() {
         <header className="mb-16">
           <h2 className="text-[#F15A24] text-[10px] font-black uppercase tracking-[0.3em] mb-4">Kontakt</h2>
           <p className="text-xl md:text-3xl font-medium max-w-3xl leading-snug opacity-90">
-            Haben Sie ein Projekt im Kopf oder benötigen Sie Hilfe bei Ihrem Shopify Store? 
+            Haben Sie ein Projekt im Kopf veya benötigen Sie Hilfe bei Ihrem Shopify Store? 
             Füllen Sie das Formular aus – wir melden uns umgehend.
           </p>
         </header>
@@ -143,10 +146,9 @@ export default function Kontakt() {
                 <div className="relative">
                   <select name="service" required className="w-full bg-[#E7E2C8]/60 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-[#F15A24] outline-none transition-all cursor-pointer appearance-none text-sm font-medium opacity-70 text-[#1C443C]">
                     <option value="">Wählen Sie einen Service</option>
-                    <option value="Webdesign">Webdesign erstellen</option>
-                    <option value="Shopify Debugging">Shopify Optimierung & Bugs</option>
-                    <option value="Store Setup">Shopify Store Setup</option>
-                    <option value="SEO Audit">Technisches SEO & Audit</option>
+                    <option value="Shopify Debugging">Shopify Debugging & Performance</option>
+                    <option value="Custom UI/UX">Custom UI/UX Store-Design</option>
+                    <option value="SEO Audit">Technical SEO & Audit</option>
                   </select>
                   <FaChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none opacity-30" size={12} />
                 </div>
@@ -173,8 +175,8 @@ export default function Kontakt() {
           <div className="space-y-16 lg:pl-12">
             <section className="space-y-4 pt-10">
               <h4 className="text-[#F15A24] text-[10px] font-black uppercase tracking-widest">Direkt Kontakt</h4>
-              <a href="mailto:info@aon-creative.com" className="text-3xl md:text-5xl font-black tracking-tighter hover:text-[#F15A24] transition-colors duration-300 underline underline-offset-8 decoration-[#F15A24]/20">
-                info@aon-creative.com
+              <a href="mailto:hello@aon-creative.com" className="text-3xl md:text-5xl font-black tracking-tighter hover:text-[#F15A24] transition-colors duration-300 underline underline-offset-8 decoration-[#F15A24]/20">
+                hello@aon-creative.com
               </a>
             </section>
 
