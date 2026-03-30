@@ -35,7 +35,7 @@ export default function Home() {
     };
   }, []);
 
-  // --- KRİTİK NOKTADAKİ DEĞİŞİM: LOADER BİTİNCE HASH KONTROLÜ ---
+  // --- GÜNCELLEME: HASH KONTROLÜ (DAHA STABİL KAYDIRMA) ---
   useEffect(() => {
     if (!isLoading) {
       const hash = window.location.hash;
@@ -43,9 +43,19 @@ export default function Home() {
         const scrollTimer = setTimeout(() => {
           const element = document.querySelector(hash);
           if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+            // Header yüksekliğini hesaba katarak yumuşak kaydırma
+            const offset = 100; 
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = element.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            });
           }
-        }, 100); 
+        }, 500); 
         return () => clearTimeout(scrollTimer);
       }
     }
@@ -78,7 +88,7 @@ export default function Home() {
             transition={{ duration: 1.2 }}
             className="max-w-6xl mx-auto px-5 md:px-6"
           >
-            {/* --- YUKARI OK BUTONU (LOGO TARZI OK) --- */}
+            {/* --- YUKARI OK BUTONU --- */}
             <AnimatePresence>
               {showScrollTop && (
                 <motion.button
@@ -128,10 +138,11 @@ export default function Home() {
                     <a key={link.name} href={link.href} className="hover:text-[#F15A24] transition-colors">{link.name}</a>
                   ))}
                 </div>
+                {/* GÜNCELLEME: initial={false} eklenerek yanıp sönme engellendi */}
                 <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 outline-none">
-                  <motion.span animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-8 h-[2px] bg-[#1C443C] block origin-center"/>
-                  <motion.span animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-8 h-[2px] bg-[#1C443C] block"/>
-                  <motion.span animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-8 h-[2px] bg-[#1C443C] block origin-center"/>
+                  <motion.span initial={false} animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-8 h-[2px] bg-[#1C443C] block origin-center"/>
+                  <motion.span initial={false} animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-8 h-[2px] bg-[#1C443C] block"/>
+                  <motion.span initial={false} animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-8 h-[2px] bg-[#1C443C] block origin-center"/>
                 </button>
               </div>
             </nav>
@@ -221,7 +232,7 @@ export default function Home() {
                 <div className="bg-[#1C443C] rounded-3xl p-10 text-[#E7E2C8] flex flex-col justify-between min-h-[400px] relative overflow-hidden group">
                   <div className="relative z-10">
                     <h3 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter mb-4 leading-none">Datenbasierte <br/>Kreativität.</h3>
-                    <p className="opacity-60 text-xs md:text-sm leading-relaxed max-w-xs mb-8">Wir kombinieren das Auge eines Designers mit der Seele eines Ingenieurs.</p>
+                    <p className="opacity-60 text-xs md:text-sm leading-relaxed max-w-xs mb-8">Wir kombinieren das Auge eines Designers with der Seele eines Ingenieurs.</p>
                     <button className="bg-[#F15A24] text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-transform">Portfolio ansehen</button>
                   </div>
                   <div className="absolute top-0 right-0 p-8 opacity-10"><div className="w-40 h-40 border border-white rounded-full flex items-center justify-center"><div className="w-20 h-20 border border-[#F15A24] rotate-45" /></div></div>
