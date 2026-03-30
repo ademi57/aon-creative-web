@@ -2,6 +2,13 @@
 import nodemailer from "nodemailer";
 
 export async function sendEmail(formData: FormData) {
+  // HONEYPOT KONTROLÜ: Botları engellemek için eklendi.
+  // Eğer bu alan dolmuşsa, işlemi mail atmadan başarılı gibi sonlandırır.
+  const botCheck = formData.get("aon_honeypot");
+  if (botCheck) {
+    return { success: true }; 
+  }
+
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
   const service = formData.get("service") as string;
