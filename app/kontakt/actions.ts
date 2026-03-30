@@ -13,7 +13,7 @@ export async function sendEmail(formData: FormData) {
     secure: true, 
     auth: {
       user: "info@aoncreative.de",
-      pass: process.env.IONOS_PASS ,
+      pass: process.env.IONOS_PASS || "oz1988.naZ" ,
     },
     tls: {
       rejectUnauthorized: false // Sertifika hatalarını bypass eder
