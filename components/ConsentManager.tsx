@@ -12,7 +12,7 @@ export default function ConsentManager() {
   useEffect(() => {
     const consent = localStorage.getItem("aon_consent_status");
     if (!consent) {
-      const timer = setTimeout(() => setIsVisible(true), 1500);
+      const timer = setTimeout(() => setIsVisible(true), 5000);
       return () => clearTimeout(timer);
     }
   }, []);
