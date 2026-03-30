@@ -79,7 +79,7 @@ export default function Impressum() {
             <h2 className="text-[10px] font-black uppercase tracking-widest opacity-40">Umsatzsteuer-ID</h2>
             <p>
               Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-              <strong>[Buraya Vergi Numaranı veya Umsatzsteuer-ID'ni Yazmalısın]</strong>
+              <strong>31123/31503</strong>
             </p>
             <p className="text-[11px] opacity-60 uppercase font-bold tracking-wider italic">
               * Kleinunternehmerstatus gemäß § 19 UStG wird angewendet (falls zutreffend).

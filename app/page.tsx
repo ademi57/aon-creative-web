@@ -9,19 +9,17 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // --- SADECE BU STATE'I EKLEDİK ---
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    let titleText = "AON Creative • Good to Great •         "; 
+    let titleText = "AON Creative • Good to Great •          "; 
     
     const titleInterval = setInterval(() => {
       titleText = titleText.substring(1) + titleText.substring(0, 1);
       document.title = titleText;
     }, 150);
 
-    // --- SADECE BU SCROLL TAKİBİNİ EKLEDİK ---
     const handleScroll = () => {
       if (window.scrollY > 300) setShowScrollTop(true);
       else setShowScrollTop(false);
@@ -37,7 +35,22 @@ export default function Home() {
     };
   }, []);
 
-  // --- SADECE BU FONKSİYONU EKLEDİK ---
+  // --- KRİTİK NOKTADAKİ DEĞİŞİM: LOADER BİTİNCE HASH KONTROLÜ ---
+  useEffect(() => {
+    if (!isLoading) {
+      const hash = window.location.hash;
+      if (hash) {
+        const scrollTimer = setTimeout(() => {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100); 
+        return () => clearTimeout(scrollTimer);
+      }
+    }
+  }, [isLoading]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -85,7 +98,7 @@ export default function Home() {
               )}
             </AnimatePresence>
 
-            {/* --- HEADER & NAVIGATION --- (HİÇBİR ŞEY DEĞİŞMEDİ) */}
+            {/* --- HEADER & NAVIGATION --- */}
             <nav className="flex justify-between items-center py-6 md:py-10 border-b border-[#1C443C]/10 mb-12 md:mb-20 relative z-[100]">
               <div className="flex-1 flex justify-start">
                 <a href="/">
@@ -123,7 +136,6 @@ export default function Home() {
               </div>
             </nav>
 
-            {/* --- GERİ KALAN TÜM BÖLÜMLER AYNI BIRAKILDI --- */}
             <AnimatePresence>
               {isMenuOpen && (
                 <motion.div initial={{ opacity: 0, x: "100%" }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: "100%" }} className="fixed inset-0 bg-[#E7E2C8] z-[90] md:hidden flex flex-col items-center justify-center p-10">
@@ -137,7 +149,6 @@ export default function Home() {
             </AnimatePresence>
 
          <header className="max-w-5xl mb-24 md:mb-40 mt-6 md:mt-12">
-  {/* ETİKETLER BÖLÜMÜ */}
   <div className="flex flex-wrap items-center gap-4 md:gap-8 mb-8">
     <div className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] uppercase text-[#1C443C]">
       <span className="w-1.5 h-1.5 bg-[#F15A24] rounded-full animate-pulse shadow-[0_0_8px_rgba(241,90,36,0.5)]" />
@@ -152,7 +163,6 @@ export default function Home() {
     </div>
   </div>
 
-  {/* BAŞLIK BÖLÜMÜ */}
   <motion.h1 
     initial={{ y: 20, opacity: 0 }} 
     animate={{ y: 0, opacity: 1 }} 
@@ -162,7 +172,6 @@ export default function Home() {
     Präzision trifft <br /> <span className="text-[#F15A24]">Digitale</span> <span className="italic font-light">Ästhetik.</span>
   </motion.h1>
 
-  {/* ALT AÇIKLAMA VE LİSTE */}
   <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
     <p className="text-base md:text-2xl font-medium leading-relaxed opacity-70">
       Wir eliminieren technische Schwachstellen in Ihrem Shopify-System und gestalten gleichzeitig Web-Erlebnisse, die Ihre Marke nachhaltig stärken.
@@ -229,7 +238,6 @@ export default function Home() {
   </div>
 
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-2">
-    {/* Referenz 1: Sadee Store */}
     <motion.div 
       whileHover={{ y: -10 }}
       className="bg-white/40 border border-[#1C443C]/5 p-8 rounded-[32px] flex flex-col justify-between min-h-[300px] shadow-lg shadow-[#1C443C]/5 group transition-all duration-500 hover:bg-[#1C443C]"
@@ -246,7 +254,6 @@ export default function Home() {
       </Link>
     </motion.div>
 
-    {/* Referenz 2: Reifenlückhof */}
     <motion.div 
       whileHover={{ y: -10 }}
       className="bg-white/40 border border-[#1C443C]/5 p-8 rounded-[32px] flex flex-col justify-between min-h-[300px] shadow-lg shadow-[#1C443C]/5 group transition-all duration-500 hover:bg-[#1C443C]"
@@ -263,7 +270,6 @@ export default function Home() {
       </Link>
     </motion.div>
 
-    {/* Referenz 3: Timeless Foto */}
     <motion.div 
       whileHover={{ y: -10 }}
       className="bg-white/40 border border-[#1C443C]/5 p-8 rounded-[32px] flex flex-col justify-between min-h-[300px] shadow-lg shadow-[#1C443C]/5 group transition-all duration-500 hover:bg-[#1C443C]"
@@ -315,7 +321,6 @@ export default function Home() {
   );
 }
 
-// Alt Bileşenler (Değişmedi)
 function SkillItem({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="group border-b border-[#1C443C]/5 pb-6">

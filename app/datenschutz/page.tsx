@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
-export default function Impressum() {
+export default function Datenschutz() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
@@ -114,14 +114,41 @@ export default function Impressum() {
         </h1>
 
         <div className="space-y-12 text-sm md:text-base leading-relaxed opacity-90 border-l border-[#1C443C]/10 pl-6 md:pl-10">
+          
           <section>
             <h2 className="text-[11px] font-black uppercase tracking-[0.2em] mb-4 text-[#1C443C]">1. Datenschutz auf einen Blick</h2>
-            <p>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften.</p>
+            <p>Wir freuen uns über Ihr Interesse an unserer Website. Der Schutz Ihrer Privatsphäre ist für uns sehr wichtig. Nachstehend informieren wir Sie ausführlich über den Umgang mit Ihren Daten.</p>
           </section>
+
           <section>
-            <h2 className="text-[11px] font-black uppercase tracking-[0.2em] mb-4 text-[#1C443C]">2. Datenerfassung</h2>
-            <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Die Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z.B. im Kontaktformular).</p>
+            <h2 className="text-[11px] font-black uppercase tracking-[0.2em] mb-4 text-[#1C443C]">2. Verantwortliche Stelle</h2>
+            <p className="font-bold uppercase tracking-tight">
+              Ozcan Kabakaya / AON Creative<br />
+              Schlesier Str. 1<br />
+              76275 Ettlingen<br />
+              info@aoncreative.de
+            </p>
           </section>
+
+          <section>
+            <h2 className="text-[11px] font-black uppercase tracking-[0.2em] mb-4 text-[#1C443C]">3. Datenerfassung auf unserer Website</h2>
+            <div className="space-y-4">
+              <p><strong>Kontaktformular:</strong> Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.</p>
+              <p><strong>Hosting (Vercel):</strong> Unsere Website wird bei Vercel Inc. gehostet. Informationen zur Einhaltung der DSGVO durch Vercel finden Sie in deren Datenschutzerklärung.</p>
+              <p><strong>E-Mail (IONOS):</strong> Die Kommunikation via E-Mail erfolgt über die Server von IONOS, wobei eine TLS-Verschlüsselung nach aktuellem Standard eingesetzt wird.</p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-[11px] font-black uppercase tracking-[0.2em] mb-4 text-[#1C443C]">4. Rechte der betroffenen Person</h2>
+            <p>Sie haben das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.</p>
+          </section>
+
+          <section>
+            <h2 className="text-[11px] font-black uppercase tracking-[0.2em] mb-4 text-[#1C443C]">5. SSL- bzw. TLS-Verschlüsselung</h2>
+            <p>Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Damit sind Daten, die Sie über diese Website übermitteln, für Dritte nicht mitlesbar.</p>
+          </section>
+
         </div>
       </div>
 
@@ -133,7 +160,7 @@ export default function Impressum() {
           </p>
           <div className="flex gap-6 text-[9px] uppercase tracking-widest font-black">
             <Link href="/impressum" className="hover:text-[#F15A24] transition-colors">Impressum</Link>
-            <Link href="/datenschutz" className="hover:text-[#F15A24] transition-colors">Datenschutz</Link>
+            <Link href="/datenschutz" className="text-[#F15A24] transition-colors">Datenschutz</Link>
           </div>
         </div>
       </footer>
