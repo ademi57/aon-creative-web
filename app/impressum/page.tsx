@@ -54,12 +54,12 @@ export default function Impressum() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 opacity-90 text-sm leading-relaxed">
           <section className="space-y-4">
             <h2 className="text-[10px] font-black uppercase tracking-widest opacity-40">Angaben gemäß § 5 TMG</h2>
-            <p className="text-xl font-bold uppercase">[ADINIZ / ŞİRKETİNİZ]</p>
-            <p>[ADRESİNİZ]<br />[POSTA KODU VE ŞEHİR]</p>
+            <p className="text-xl font-bold uppercase">Ozcan Kabakaza / AonStore</p>
+            <p>Schlesier str.<br />76275 / Ettlingen</p>
           </section>
           <section className="space-y-4">
             <h2 className="text-[10px] font-black uppercase tracking-widest opacity-40">Kontakt</h2>
-            <p className="text-xl font-bold underline decoration-[#F15A24]">info@aon-creative.com</p>
+            <p className="text-xl font-bold underline decoration-[#F15A24]">info@aoncreative.com</p>
           </section>
         </div>
       </div>

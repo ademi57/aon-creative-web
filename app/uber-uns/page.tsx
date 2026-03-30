@@ -197,7 +197,7 @@ export default function UberUns() {
             Haben Sie eine Projektidee? Lassen Sie uns gemeinsam etwas Herausragendes schaffen.
           </p>
           <a 
-            href="/#kontakt" 
+            href="/kontakt" 
             className="inline-block bg-[#1C443C] text-[#E7E2C8] px-12 py-5 rounded-full text-xs font-black uppercase tracking-[0.3em] hover:bg-white hover:text-[#F15A24] transition-all duration-500 shadow-lg shadow-[#1C443C]/20"
           >
             Kontaktieren Sie uns

@@ -92,7 +92,7 @@ export default function Home() {
                   <img 
                     src="/logo.png" 
                     alt="AON Creative" 
-                    className="w-50 md:w-50 block pointer-events-none select-none transition-all duration-300"
+                   className="w-[130px] md:w-[180px] h-auto block pointer-events-none select-none transition-all duration-300 object-contain"
                   />
                 </a>
               </div>
@@ -136,25 +136,46 @@ export default function Home() {
               )}
             </AnimatePresence>
 
-            <header className="max-w-5xl mb-24 md:mb-40 mt-6 md:mt-12">
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="bg-[#1C443C] text-[#E7E2C8] px-3 py-1 rounded text-[9px] font-bold tracking-[0.3em] uppercase w-fit">Technical Debug Jäger</div>
-                <div className="bg-transparent border border-[#1C443C]/20 text-[#1C443C] px-3 py-1 rounded text-[9px] font-bold tracking-[0.3em] uppercase w-fit">Creative Design Studio</div>
-              </div>
-              <motion.h1 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2, duration: 0.8 }} className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-extrabold tracking-tighter leading-[0.95] mb-12 uppercase">
-                Präzision trifft <br /> <span className="text-[#F15A24]">Digitale</span> <span className="italic font-light">Ästhetik.</span>
-              </motion.h1>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
-                <p className="text-base md:text-2xl font-medium leading-relaxed opacity-70">Wir eliminieren technische Schwachstellen in Ihrem Shopify-System und gestalten gleichzeitig Web-Erlebnisse, die Ihre Marke nachhaltig stärken.</p>
-                <div className="hidden md:flex items-center gap-4 border-l border-[#1C443C]/10 pl-8">
-                  <ul className="text-xs font-bold uppercase tracking-widest space-y-3">
-                    <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#F15A24] rounded-full"/> Shopify Optimierung</li>
-                    <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#41BDCC] rounded-full"/> High-End Webdesign</li>
-                    <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#1C443C] rounded-full"/> Qualitätssicherung</li>
-                  </ul>
-                </div>
-              </div>
-            </header>
+         <header className="max-w-5xl mb-24 md:mb-40 mt-6 md:mt-12">
+  {/* ETİKETLER BÖLÜMÜ */}
+  <div className="flex flex-wrap items-center gap-4 md:gap-8 mb-8">
+    <div className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] uppercase text-[#1C443C]">
+      <span className="w-1.5 h-1.5 bg-[#F15A24] rounded-full animate-pulse shadow-[0_0_8px_rgba(241,90,36,0.5)]" />
+      Technical Debug Jäger
+    </div>
+    
+    <div className="hidden md:block w-[1px] h-4 bg-[#1C443C]/20" /> 
+    
+    <div className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] uppercase text-[#1C443C]/60">
+      <span className="w-1.5 h-1.5 border border-[#1C443C]/40 rounded-full" />
+      Creative Design Studio
+    </div>
+  </div>
+
+  {/* BAŞLIK BÖLÜMÜ */}
+  <motion.h1 
+    initial={{ y: 20, opacity: 0 }} 
+    animate={{ y: 0, opacity: 1 }} 
+    transition={{ delay: 0.2, duration: 0.8 }} 
+    className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-extrabold tracking-tighter leading-[0.95] mb-12 uppercase"
+  >
+    Präzision trifft <br /> <span className="text-[#F15A24]">Digitale</span> <span className="italic font-light">Ästhetik.</span>
+  </motion.h1>
+
+  {/* ALT AÇIKLAMA VE LİSTE */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
+    <p className="text-base md:text-2xl font-medium leading-relaxed opacity-70">
+      Wir eliminieren technische Schwachstellen in Ihrem Shopify-System und gestalten gleichzeitig Web-Erlebnisse, die Ihre Marke nachhaltig stärken.
+    </p>
+    <div className="hidden md:flex items-center gap-4 border-l border-[#1C443C]/10 pl-8">
+      <ul className="text-xs font-bold uppercase tracking-widest space-y-3">
+        <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#F15A24] rounded-full"/> Shopify Optimierung</li>
+        <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#41BDCC] rounded-full"/> High-End Webdesign</li>
+        <li className="flex items-center gap-2"><span className="w-2 h-2 bg-[#1C443C] rounded-full"/> Qualitätssicherung</li>
+      </ul>
+    </div>
+  </div>
+</header>
 
             <section className="mb-32 md:mb-48">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -200,25 +221,66 @@ export default function Home() {
             </section>
 
             <section id="referenzen" className="mb-32 md:mb-48 border-t border-[#1C443C]/10 pt-20 scroll-mt-24 overflow-hidden">
-              <div className="mb-16">
-                <h2 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#F15A24] mb-4 text-center md:text-left">Portfolio</h2>
-                <h3 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-none text-[#1C443C] text-center md:text-left">Ausgewählte <span className="italic font-light">Projekte.</span></h3>
-              </div>
-              <div className="relative flex overflow-x-hidden">
-                <motion.div className="flex whitespace-nowrap gap-6 py-4" animate={{ x: [0, -1000] }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}>
-                  {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((item, index) => (
-                    <div key={index} className="inline-block w-[300px] md:w-[450px] aspect-video bg-[#1C443C] rounded-[2rem] overflow-hidden relative group">
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500" />
-                      <div className="absolute bottom-8 left-8 text-[#E7E2C8]">
-                        <span className="text-[8px] uppercase tracking-widest font-black opacity-60">Shopify / E-Commerce</span>
-                        <h4 className="text-xl font-bold uppercase tracking-tighter">Project Name {item}</h4>
-                      </div>
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><div className="bg-[#F15A24] text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">Case Study</div></div>
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-            </section>
+  <div className="mb-16">
+    <h2 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#F15A24] mb-4 text-center md:text-left">Portfolio</h2>
+    <h3 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-none text-[#1C443C] text-center md:text-left">
+      Ausgewählte <span className="italic font-light">Referenzen.</span>
+    </h3>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-2">
+    {/* Referenz 1: Sadee Store */}
+    <motion.div 
+      whileHover={{ y: -10 }}
+      className="bg-white/40 border border-[#1C443C]/5 p-8 rounded-[32px] flex flex-col justify-between min-h-[300px] shadow-lg shadow-[#1C443C]/5 group transition-all duration-500 hover:bg-[#1C443C]"
+    >
+      <div>
+        <span className="text-[10px] font-black tracking-widest opacity-30 group-hover:text-[#F15A24] group-hover:opacity-100 uppercase">E-Commerce / Shopify</span>
+        <h4 className="text-2xl font-bold uppercase tracking-tighter mt-4 mb-2 group-hover:text-white transition-colors">Sadee Store</h4>
+        <p className="text-sm opacity-70 leading-relaxed font-medium group-hover:text-white/80">
+          Umfassende Shopify-Optimierung und UI/UX-Anpassungen für ein erstklassiges E-Commerce-Erlebnis auf internationalem Niveau.
+        </p>
+      </div>
+      <Link href="https://www.sadee.store" target="_blank" className="mt-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#F15A24] group-hover:text-white transition-all">
+        Website besuchen <span className="text-lg">→</span>
+      </Link>
+    </motion.div>
+
+    {/* Referenz 2: Reifenlückhof */}
+    <motion.div 
+      whileHover={{ y: -10 }}
+      className="bg-white/40 border border-[#1C443C]/5 p-8 rounded-[32px] flex flex-col justify-between min-h-[300px] shadow-lg shadow-[#1C443C]/5 group transition-all duration-500 hover:bg-[#1C443C]"
+    >
+      <div>
+        <span className="text-[10px] font-black tracking-widest opacity-30 group-hover:text-[#F15A24] group-hover:opacity-100 uppercase">Automotive / Business Web</span>
+        <h4 className="text-2xl font-bold uppercase tracking-tighter mt-4 mb-2 group-hover:text-white transition-colors">Reifenlückhof</h4>
+        <p className="text-sm opacity-70 leading-relaxed font-medium group-hover:text-white/80">
+          Entwicklung einer hochperformanten Web-Architektur, die die Corporate Identity stärkt und technische Exzellenz bietet.
+        </p>
+      </div>
+      <Link href="https://www.reifenlueckhof.de" target="_blank" className="mt-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#F15A24] group-hover:text-white transition-all">
+        Website besuchen <span className="text-lg">→</span>
+      </Link>
+    </motion.div>
+
+    {/* Referenz 3: Timeless Foto */}
+    <motion.div 
+      whileHover={{ y: -10 }}
+      className="bg-white/40 border border-[#1C443C]/5 p-8 rounded-[32px] flex flex-col justify-between min-h-[300px] shadow-lg shadow-[#1C443C]/5 group transition-all duration-500 hover:bg-[#1C443C]"
+    >
+      <div>
+        <span className="text-[10px] font-black tracking-widest opacity-30 group-hover:text-[#F15A24] group-hover:opacity-100 uppercase">Creative / Portfolio</span>
+        <h4 className="text-2xl font-bold uppercase tracking-tighter mt-4 mb-2 group-hover:text-white transition-colors">Timeless Foto</h4>
+        <p className="text-sm opacity-70 leading-relaxed font-medium group-hover:text-white/80">
+          Ästhetisches und schnelles Webdesign mit Fokus auf visuelle Klarheit und eine intuitive Nutzerführung für kreative Portfolios.
+        </p>
+      </div>
+      <Link href="https://www.timelessfoto.de" target="_blank" className="mt-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#F15A24] group-hover:text-white transition-all">
+        Website besuchen <span className="text-lg">→</span>
+      </Link>
+    </motion.div>
+  </div>
+</section>
 
             <footer className="pb-10 pt-10 border-t border-[#1C443C]/5">
               <div className="flex justify-center gap-10 mb-10 text-2xl text-[#1C443C]">
