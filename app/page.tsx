@@ -284,7 +284,7 @@ export default function Home() {
 
             <footer className="pb-10 pt-10 border-t border-[#1C443C]/5">
               <div className="flex justify-center gap-10 mb-10 text-2xl text-[#1C443C]">
-                <motion.a href="#" whileHover={{ y: -5, color: "#F15A24" }}><FaInstagram /></motion.a>
+                <motion.a href="https://www.instagram.com/aoncreative__/" whileHover={{ y: -5, color: "#F15A24" }}><FaInstagram /></motion.a>
                 <motion.a href="#" whileHover={{ y: -5, color: "#F15A24" }}><FaFacebook /></motion.a>
                 <motion.a href="#" whileHover={{ y: -5, color: "#F15A24" }}><FaGoogle /></motion.a>
                 <motion.a href="#" whileHover={{ y: -5, color: "#F15A24" }}><FaLinkedin /></motion.a>
