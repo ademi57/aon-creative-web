@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
-    let titleText = "AON Creative • Good to Great •          "; 
+    let titleText = "AONSI DIGITAL • Good to Great •          "; 
     
     const titleInterval = setInterval(() => {
       titleText = titleText.substring(1) + titleText.substring(0, 1);
@@ -81,7 +81,7 @@ function LogoAnimation() {
       {/* Resim Dosyası Olarak Logo */}
       <Image 
         src="/logo.png"       // public klasöründeki dosya adınız
-        alt="AON Creative Logo" 
+        alt="AONSI DIGITAL Logo" 
         width={600}           // Logonun genişliği
         height={400}           // Logonun yüksekliği
         className="h-30 md:h-45 w-auto object-contain" // Boyutu buradan da ayarlayabilirsiniz
@@ -330,13 +330,13 @@ function LogoTextSwitcher() {
 
             <footer className="pb-10 pt-10 border-t border-[#1C443C]/5">
               <div className="flex justify-center gap-10 mb-10 text-2xl text-[#1C443C]">
-                <motion.a href="https://www.instagram.com/aoncreative__/" whileHover={{ y: -5, color: "#F15A24" }}><FaInstagram /></motion.a>
+                <motion.a href="https://www.instagram.com/aonsidigital/" whileHover={{ y: -5, color: "#F15A24" }}><FaInstagram /></motion.a>
                 <motion.a href="#" whileHover={{ y: -5, color: "#F15A24" }}><FaFacebook /></motion.a>
                 <motion.a href="#" whileHover={{ y: -5, color: "#F15A24" }}><FaGoogle /></motion.a>
                 <motion.a href="#" whileHover={{ y: -5, color: "#F15A24" }}><FaLinkedin /></motion.a>
               </div>
               <p className="text-[9px] tracking-[0.3em] uppercase font-black mb-4 md:mb-0">
-  AON CREATIVE • © 2026 Engineering Aesthetics
+  AONSI DIGITAL • © 2026 Engineering Aesthetics
 </p>
 
 <div className="flex gap-6 text-[9px] uppercase tracking-widest font-black">
