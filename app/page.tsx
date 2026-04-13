@@ -4,6 +4,7 @@ import TerminalLoader from "../components/TerminalLoader";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaInstagram, FaFacebook, FaGoogle, FaLinkedin } from "react-icons/fa";
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -74,7 +75,39 @@ export default function Home() {
     { name: "Referenzen", href: "#referenzen" },
     { name: "Kontakt", href: "/kontakt" },
   ];
+function LogoAnimation() {
+  return (
+    <div className="flex items-center gap-1 font-sans">
+      {/* Resim Dosyası Olarak Logo */}
+      <Image 
+        src="/logo.png"       // public klasöründeki dosya adınız
+        alt="AON Creative Logo" 
+        width={600}           // Logonun genişliği
+        height={400}           // Logonun yüksekliği
+        className="h-30 md:h-45 w-auto object-contain" // Boyutu buradan da ayarlayabilirsiniz
+        priority              // Logonun hızlı yüklenmesi için
+      />
 
+      {/* Eski metin tabanlı logoyu tamamen kaldırmak istiyorsanız 
+        aşağıdaki 'AON' ve 'LogoTextSwitcher' kısımlarını sildim. 
+      */}
+    </div>
+  );
+}
+
+// Zamanlamayı kontrol eden yardımcı bileşen
+function LogoTextSwitcher() {
+  const [text, setText] = useState("si");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setText((prev) => (prev === "si" ? "C" : "si"));
+    }, 3300); // Animasyon süresiyle uyumlu döngü
+    return () => clearInterval(interval);
+  }, []);
+
+  return <>{text}</>;
+}
   return (
     <main className="min-h-screen bg-[#E7E2C8] text-[#1C443C] selection:bg-[#F15A24] selection:text-white font-sans overflow-x-hidden text-[15px]">
       <AnimatePresence mode="wait">
@@ -110,15 +143,11 @@ export default function Home() {
 
             {/* --- HEADER & NAVIGATION --- */}
             <nav className="flex justify-between items-center py-6 md:py-10 border-b border-[#1C443C]/10 mb-12 md:mb-20 relative z-[100]">
-              <div className="flex-1 flex justify-start">
-                <a href="/">
-                  <img 
-                    src="/logo.png" 
-                    alt="AON Creative" 
-                   className="w-[130px] md:w-[180px] h-auto block pointer-events-none select-none transition-all duration-300 object-contain"
-                  />
-                </a>
-              </div>
+  <div className="flex-1 flex justify-start">
+    <Link href="/">
+      <LogoAnimation />
+    </Link>
+  </div>
 
               <div className="flex-1 flex justify-center">
                 <motion.a

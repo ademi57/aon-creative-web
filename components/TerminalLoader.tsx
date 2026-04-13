@@ -28,14 +28,8 @@ export default function TerminalLoader({ onComplete }: TerminalLoaderProps) {
           <img src="/logo.png" alt="AON" className="w-full h-auto mix-blend-multiply" />
         </motion.div>
         
-        <div className="absolute bottom-[-50px] w-48 h-[1.5px] bg-[#1C443C]/5 overflow-hidden">
-          <motion.div 
-            initial={{ x: "-100%" }}
-            animate={{ x: "100%" }}
-            transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut" }}
-            className="w-full h-full bg-[#F15A24]"
-          />
-        </div>
+        {/* SİLDİĞİMİZ KISIM BURADAYDI (Yüklenme Çizgisi) */}
+        
       </div>
     </motion.div>
   );

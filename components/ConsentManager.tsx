@@ -59,6 +59,17 @@ export default function ConsentManager() {
                 Ablehnen
               </button>
             </div>
+            <div className="mt-4 pt-4 border-t border-white/5 flex justify-center">
+  <a 
+    href="https://www.instagram.com/aoncreative__/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="text-[10px] opacity-40 hover:opacity-100 transition-opacity flex items-center gap-2 tracking-[0.2em] uppercase font-black"
+  >
+    <span>Instagram</span>
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+  </a>
+</div>
           </div>
         </motion.div>
       )}

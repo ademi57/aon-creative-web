@@ -216,8 +216,8 @@ export default function UberUns() {
           <div className="flex flex-col md:flex-row justify-between items-center opacity-40 text-center">
             <p className="text-[9px] tracking-[0.3em] uppercase font-black mb-4 md:mb-0">AON CREATIVE • © 2026 Engineering Aesthetics</p>
             <div className="flex gap-6 text-[9px] uppercase tracking-widest font-black">
-              <a href="#" className="hover:text-[#F15A24]">Impressum</a>
-              <a href="#" className="hover:text-[#F15A24]">Datenschutz</a>
+              <a href="/Impressum" className="hover:text-[#F15A24]">Impressum</a>
+              <a href="/Datenschutz" className="hover:text-[#F15A24]">Datenschutz</a>
             </div>
           </div>
         </footer>

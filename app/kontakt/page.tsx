@@ -75,6 +75,14 @@ export default function Kontakt() {
               <p className="text-sm leading-relaxed opacity-80 mb-8 font-medium">
                 Ihre Nachricht wurde erfolgreich übermittelt. Wir haben Ihnen eine Bestätigungs-E-Mail gesendet und melden uns in Kürze bei Ihnen.
               </p>
+<input 
+  type="text" 
+  name="aon_honeypot" 
+  style={{ display: 'none' }} 
+  tabIndex={-1} 
+  autoComplete="off" 
+/>
+
               <button 
                 onClick={() => setShowSuccessModal(false)}
                 className="w-full bg-[#1C443C] text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-[#F15A24] transition-all duration-300 shadow-lg"
@@ -103,15 +111,28 @@ export default function Kontakt() {
         </div>
 
         <div className="flex-1 flex justify-end items-center">
-          <div className="hidden md:flex gap-8 text-[10px] uppercase tracking-[0.25em] font-bold opacity-60">
+          <div className="hidden md:flex gap-8 text-[10px] uppercase tracking-[0.25em] font-bold opacity-60 mr-4">
             {navLinks.map((link) => (
               <Link key={link.name} href={link.href} className="hover:text-[#F15A24] transition-colors">{link.name}</Link>
             ))}
           </div>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 outline-none relative z-[2100]">
-            <motion.span animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className={`w-8 h-[2.5px] block origin-center transition-colors ${isMenuOpen ? 'bg-[#F15A24]' : 'bg-[#1C443C]'}`} />
-            <motion.span animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-8 h-[2.5px] bg-[#1C443C] block" />
-            <motion.span animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className={`w-8 h-[2.5px] block origin-center transition-colors ${isMenuOpen ? 'bg-[#F15A24]' : 'bg-[#1C443C]'}`} />
+          {/* GÜNCELLENEN BUTON */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 outline-none relative z-[3000]"
+          >
+            <motion.span 
+              animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} 
+              className={`w-8 h-[2.5px] block origin-center transition-colors ${isMenuOpen ? 'bg-[#F15A24]' : 'bg-[#1C443C]'}`} 
+            />
+            <motion.span 
+              animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} 
+              className="w-8 h-[2.5px] bg-[#1C443C] block" 
+            />
+            <motion.span 
+              animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} 
+              className={`w-8 h-[2.5px] block origin-center transition-colors ${isMenuOpen ? 'bg-[#F15A24]' : 'bg-[#1C443C]'}`} 
+            />
           </button>
         </div>
       </nav>
