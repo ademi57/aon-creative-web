@@ -225,7 +225,7 @@ export default function Kontakt() {
             <section className="space-y-4 pt-10">
               <h4 className="text-[#F15A24] text-[10px] font-black uppercase tracking-widest">Direkt Kontakt</h4>
               <a href="mailto:info@aoncreative.com" className="text-3xl md:text-5xl font-black tracking-tighter hover:text-[#F15A24] transition-colors duration-300 underline underline-offset-8 decoration-[#F15A24]/20">
-                info@aoncreative.com
+                004915202343434
               </a>
             </section>
 
