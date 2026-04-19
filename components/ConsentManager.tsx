@@ -61,7 +61,7 @@ export default function ConsentManager() {
             </div>
             <div className="mt-4 pt-4 border-t border-white/5 flex justify-center">
   <a 
-    href="https://www.instagram.com/aoncreative__/" 
+    href="https://www.instagram.com/aonsidigital/" 
     target="_blank" 
     rel="noopener noreferrer"
     className="text-[10px] opacity-40 hover:opacity-100 transition-opacity flex items-center gap-2 tracking-[0.2em] uppercase font-black"

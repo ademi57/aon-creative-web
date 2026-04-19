@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "AON Creative | Good to Great",
+  title: "AONSI DIGITAL | Good to Great",
   description: "Shopify Debugging & High-End Digital Aesthetics",
 };
 

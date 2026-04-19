@@ -19,7 +19,7 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-5 md:px-6 flex justify-between items-center">
           <div className="flex-1 flex justify-start">
             <a href="/">
-              <img src="/logo.png" alt="AON Creative" className="w-32 md:w-40 block" />
+              <img src="/logo.png" alt="AONSI DIGITAL" className="w-32 md:w-40 block" />
             </a>
           </div>
 

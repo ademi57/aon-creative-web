@@ -25,7 +25,7 @@ export default function UberUns() {
           <a href="/">
             <img 
               src="/logo.png" 
-              alt="AON Creative" 
+              alt="AONSI DIGITAL" 
               className="w-28 md:w-32 block pointer-events-none select-none"
             />
           </a>
@@ -108,7 +108,7 @@ export default function UberUns() {
           transition={{ duration: 1.2 }}
           className="text-center z-10 px-5"
         >
-          <h1 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#F15A24] mb-4">Über AON Creative</h1>
+          <h1 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#F15A24] mb-4">Über AONSI DIGITAL</h1>
           <h2 className="text-5xl md:text-8xl font-bold uppercase tracking-tighter leading-none">
             Ihre digitale Vision, <br />
             <span className="italic font-light">Unsere Expertise.</span>
@@ -129,7 +129,7 @@ export default function UberUns() {
       viewport={{ once: true }}
       className="space-y-6"
     >
-      <h3 className="text-2xl md:text-4xl font-bold uppercase tracking-tighter">Willkommen bei <br/>AON Creative.</h3>
+      <h3 className="text-2xl md:text-4xl font-bold uppercase tracking-tighter">Willkommen bei <br/>AONSI DIGITAL.</h3>
       <p className="text-lg opacity-80 leading-relaxed">
         Wir sind ein leidenschaftliches Kollektiv aus Kreativen, Entwicklern und digitalen Strategen. Unsere Spezialisierung liegt darin, Unternehmen wie Ihrem zu helfen, im digitalen Raum nachhaltig erfolgreich zu sein.
       </p>
@@ -214,7 +214,7 @@ export default function UberUns() {
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center opacity-40 text-center">
-            <p className="text-[9px] tracking-[0.3em] uppercase font-black mb-4 md:mb-0">AON CREATIVE • © 2026 Engineering Aesthetics</p>
+            <p className="text-[9px] tracking-[0.3em] uppercase font-black mb-4 md:mb-0">AONSI DIGITAL • © 2026 Engineering Aesthetics</p>
             <div className="flex gap-6 text-[9px] uppercase tracking-widest font-black">
               <a href="/Impressum" className="hover:text-[#F15A24]">Impressum</a>
               <a href="/Datenschutz" className="hover:text-[#F15A24]">Datenschutz</a>

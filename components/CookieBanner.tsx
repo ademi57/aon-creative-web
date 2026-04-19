@@ -38,7 +38,7 @@ export default function CookieBanner() {
               </div>
               
               <p className="text-sm leading-relaxed opacity-80">
-                Wir nutzen Cookies, um Ihre Erfahrung auf **AON Creative** zu verbessern. 
+                Wir nutzen Cookies, um Ihre Erfahrung auf **AONSI DIGITAL** zu verbessern. 
                 Sind Sie damit einverstanden?
               </p>
 

@@ -21,7 +21,7 @@ export default function Impressum() {
       <nav className="max-w-6xl mx-auto px-5 md:px-6 flex justify-between items-center py-6 md:py-10 border-b border-[#1C443C]/10 relative z-[1000]">
         <div className="flex-1 flex justify-start">
           <Link href="/">
-            <img src="/logo.png" alt="AON Creative" className="w-32 md:w-40 block" />
+            <img src="/logo.png" alt="AONSI DIGITAL" className="w-32 md:w-40 block" />
           </Link>
         </div>
 
@@ -58,7 +58,7 @@ export default function Impressum() {
           <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-4">
               <h2 className="text-[10px] font-black uppercase tracking-widest opacity-40">Angaben gemäß § 5 TMG</h2>
-              <p className="text-xl font-bold uppercase tracking-tight">Ozcan Kabakaya<br />AON Creative</p>
+              <p className="text-xl font-bold uppercase tracking-tight">Ozcan Kabakaya<br />AONSI DIGITAL</p>
               <p className="text-lg">
                 Schlesier Str. 1<br />
                 76275 Ettlingen<br />
@@ -127,7 +127,7 @@ export default function Impressum() {
       <footer className="max-w-6xl mx-auto px-5 py-12 border-t border-[#1C443C]/10 mt-20 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[9px] tracking-[0.3em] uppercase font-black opacity-40 text-center md:text-left">
-            AON CREATIVE • © 2026 Engineering Aesthetics
+            AONSI DIGITAL • © 2026 Engineering Aesthetics
           </p>
           <div className="flex gap-6 text-[9px] uppercase tracking-widest font-black">
             <Link href="/impressum" className="hover:text-[#F15A24] text-[#F15A24]">Impressum</Link>

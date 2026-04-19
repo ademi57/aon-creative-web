@@ -98,7 +98,7 @@ export default function Kontakt() {
       <nav className="max-w-6xl mx-auto px-5 md:px-6 flex justify-between items-center py-6 md:py-10 border-b border-[#1C443C]/10 relative z-[1000]">
         <div className="flex-1 flex justify-start items-center">
           <Link href="/" className="inline-block">
-            <img src="/logo.png" alt="AON Creative" className="w-full h-auto max-w-[120px] md:max-w-[180px] block pointer-events-none select-none transition-all duration-300 object-contain" />
+            <img src="/logo.png" alt="AONSI DIGITAL" className="w-full h-auto max-w-[120px] md:max-w-[180px] block pointer-events-none select-none transition-all duration-300 object-contain" />
           </Link>
         </div>
 
@@ -253,7 +253,7 @@ export default function Kontakt() {
       <footer className="max-w-6xl mx-auto px-5 py-12 border-t border-[#1C443C]/10 mt-20">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[9px] tracking-[0.3em] uppercase font-black opacity-40 text-center md:text-left">
-            AON CREATIVE • © 2026 Engineering Aesthetics
+            AONSI DIGITAL • © 2026 Engineering Aesthetics
           </p>
           <div className="flex gap-6 text-[9px] uppercase tracking-widest font-black">
             <Link href="/impressum" className="hover:text-[#F15A24] transition-colors">Impressum</Link>
